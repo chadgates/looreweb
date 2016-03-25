@@ -1,0 +1,50 @@
+{% load wagtailcore_tags %}
+
+<style>
+.rezept_zutaten {
+    margin-top: 20px;
+}
+
+.rezept_arbeitsschritte {
+    margin-top: 20px;
+}
+</style>
+    {% if self.untertitel %}
+        <div class="container-fluid">
+            <div class="container">
+                <h5>{{ self.untertitel }}</h5>
+            </div>
+        </div>
+    {% endif %}
+
+    {% if self.zutaten %}
+        <div class="container-fluid">
+            <div class="container rezept_zutaten">
+                <h5>Zutaten</h5>
+                    <table class="table">
+                        <thead>
+                            <tr>
+                                <th width="30%">Menge</th>
+                                <th width="70%">Zutat</th>
+                            </tr>
+                        </thead>
+                    <tbody>
+                    {% for block in self.zutaten %}
+                        {% if block.block_type == 'Zutat' %}
+                            <tr>
+                                <td>{{ block.value.amount }}</td>
+                                <td>{{ block.value.ingredient }}</td>
+                            </tr>
+                        {% endif %}
+                    {% endfor %}
+                    </tbody>
+                </table>
+            </div>
+        </div>
+        {% endif %}
+    <div class="container-fluid">
+        <div class="container rezept_arbeitsschritte">
+                <h5>Arbeitsschritte</h5>
+                {{ self.arbeitsschritte }}
+        </div>
+    </div>

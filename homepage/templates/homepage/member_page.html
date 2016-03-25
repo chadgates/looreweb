@@ -1,0 +1,12 @@
+{% extends "base.html" %}
+{% load wagtailimages_tags %}
+
+{% block body_class %}template-homepage{% endblock %}
+
+{% block content %}
+    <div class="container-fluid">
+    <div class="card-columns">
+    {{ page.body }}
+    </div>
+    </div>
+{% endblock %}

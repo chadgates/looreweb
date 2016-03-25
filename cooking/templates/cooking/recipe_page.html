@@ -1,0 +1,62 @@
+{% extends "base.html" %}
+{% load wagtailcore_tags wagtailimages_tags %}
+{% block body_class %}template-homepage{% endblock %}
+
+{% block extra_css %}
+<style>
+.rezept_titel {
+    padding-top: 20px;
+    padding-bottom: 20px;
+}
+.rezept_info {
+    padding-top: 10px;
+    padding-bottom: 10px;
+}
+</style>
+{% endblock %}
+
+{% block content %}
+     <div class="container-fluid" style="background-color: whitesmoke">
+        <div class="container rezept_titel"><h3>{{ page.title }}</h3></div>
+    </div>
+
+    <div class="container-fluid" style="background-color: #444444">
+        <div class="container">
+            {% if page.rezeptbild %}
+                {% for block in page.rezeptbild %}
+                    {% image block.value.rezept_bild width-600 class="img-responsive" %}
+                {% endfor %}
+            {% endif %}
+        </div>
+    </div>
+
+    <div class="container-fluid" style="background-color: whitesmoke">
+    <div class="container rezept_info">
+       <div class="row">
+            <div class="col-xs-6">
+            <div class="pull-xs-left">Menge für Personen<span class="label label-pill label-primary">{{ page.mengepersonen }}</span></div>
+            </div>
+           <div class="col-xs-6">
+                <div class="pull-xs-right">Gang: <span class="label label-pill label-primary">{{ page.gang }}</span></div>
+            </div>
+       </div>
+        {% if page.kommentar %}
+        <div class="row">
+            <div class="col-xs-12">
+            {{ page.kommentar|richtext }}
+            </div>
+        </div>
+        {% endif %}
+    </div>
+    </div>
+
+    {% for block in page.body %}
+{#    {% if block.block_type == 'heading' %}#}
+{#      <h1>{{ block.value }}</h1>#}
+{#    {% else %}#}
+      <section class="block-{{ block.block_type }}">
+        {{ block }}
+      </section>
+{#    {% endif %}#}
+  {% endfor %}
+{% endblock %}

@@ -1,0 +1,57 @@
+{% extends "base.html" %}
+{% load wagtailcore_tags wagtailimages_tags %}
+{% block body_class %}template-homepage{% endblock %}
+
+{% block content %}
+    <div class="container">
+    <h1>{{ page.title }}</h1>
+        Abendchef: {{ page.chefdejour}}<br>
+        Thema: {{ page.theme }} <br>
+        Kommentar: {{ page.remarks|richtext }}
+
+        <h4>Apéro</h4>
+
+        {% for page in self.apero %}
+            <h5>{{ page.title }}</h5><br>
+             {% if page.rezeptbild %}
+                {% for block in page.rezeptbild %}
+                    {% image block.value.rezept_bild width-300 class="img-responsive" %}
+                {% endfor %}
+            {% endif %}
+        {% endfor %}
+
+        <h4>Vorspeise</h4>
+
+        {% for page in self.vorspeise %}
+            <h5>{{ page.title }}</h5><br>
+             {% if page.rezeptbild %}
+                {% for block in page.rezeptbild %}
+                    {% image block.value.rezept_bild width-300 class="img-responsive" %}
+                {% endfor %}
+            {% endif %}
+        {% endfor %}
+
+        <h4>Hauptgang</h4>
+
+        {% for page in self.hauptgang %}
+            <h5>{{ page.title }}</h5><br>
+             {% if page.rezeptbild %}
+                {% for block in page.rezeptbild %}
+                    {% image block.value.rezept_bild width-300 class="img-responsive" %}
+                {% endfor %}
+            {% endif %}
+        {% endfor %}
+
+        <h4>Dessert</h4>
+
+        {% for page in self.dessert %}
+            <h5>{{ page.title }}</h5><br>
+             {% if page.rezeptbild %}
+                {% for block in page.rezeptbild %}
+                    {% image block.value.rezept_bild width-300 class="img-responsive" %}
+                {% endfor %}
+            {% endif %}
+        {% endfor %}
+
+    </div>
+{% endblock %}

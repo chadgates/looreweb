@@ -1,0 +1,72 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block extra_css %}
+    <link rel="stylesheet" type="text/css" href="//fonts.googleapis.com/css?family=Open+Sans" />
+    <style>
+        .myElement{background:url("{% static 'images/background-1633x1080-72.jpg' %}") no-repeat fixed center top}
+        .home-headline{
+            font-family: 'Open Sans';
+	        font-size: 48px;
+            color: whitesmoke;
+            text-align: center;}
+        .home-sub{
+            font-family: 'Open Sans';
+	        font-size: 24px;
+            color: whitesmoke;
+            text-align: center;}
+        .home-img{
+            text-align: center;
+        }
+        .hr20 {
+            margin-top: 10px;
+            margin-bottom: 10px;
+            }
+        .hr60 {
+            margin-top: 30px;
+            margin-bottom: 30px;
+            }
+        .hr100 {
+            margin-top: 50px;
+            margin-bottom: 50px;
+            }
+        .hr140 {
+            margin-top: 70px;
+            margin-bottom: 70px;
+            }
+    </style>
+
+{% endblock %}
+
+{% block body_class %}template-homepage{% endblock %}
+
+{% block content %}
+
+
+    <div class="myElement container-fluid" style="background-color:#2c2729">
+
+             <section>
+                 <div call=
+                 <div class="hr20">&nbsp</div>
+                 <span class="home-headline">
+                     <p>Chochclub Loorechöpf</p>
+                 </span>
+                 <div class="hr60"></div>
+                 <p class="home-img"><img src="{% static 'images/forkspoon.png' %}" width="164" height="222" alt="logo_transparent"></p>
+                <div class="hr60"></div>
+                 <span class="home-sub"><p>Pfiffig seit 1971</p>
+                     <div class="hr60"></div>
+                 </span>
+                 <span class="home-sub"><p>
+                     <a class="btn btn-primary" role="button" href="/rezepte">Rezepte</a>
+                     <a class="btn btn-secondary-outline" role="button" href="#content">Über uns</a></p>
+                </span>
+                 <div class="hr140"></div>
+             </section>
+    </div>
+
+    <div class="container" id="content">
+    {{ page.body }}
+    </div>
+
+{% endblock %}

@@ -20,8 +20,13 @@
     "DJANGO_AWS_SECRET_ACCESS_KEY": "",
     "DJANGO_AWS_STORAGE_BUCKET_NAME": "",
     "DJANGO_MAILGUN_SERVER_NAME": "",
-    
-    "DJANGO_MAILGUN_API_KEY": "" 
+
+    "DJANGO_MAILGUN_API_KEY": "",
+
+    "RECAPTCHA_PUBLIC_KEY": "",
+    "RECAPTCHA_PRIVATE_KEY": "",
+    "WAGTAILSEARCH_BACKENDS_URL": ""
+
   },
   "scripts": {
     "postdeploy": "python manage.py migrate"
@@ -29,6 +34,7 @@
   "addons": [
     "heroku-postgresql:hobby-dev",
     "heroku-redis:hobby-dev",
-    "mailgun"
+    "mailgun",
+    "searchbox:starter"
   ]
 }

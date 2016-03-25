@@ -1,0 +1,8 @@
+{% load wagtailimages_tags %}
+
+  <div class="card">
+    {% image value.photo width-300 class="card-img-top" %}
+    <div class="card-block">
+      <p class="card-text">{{ value.comment }}</p>
+    </div>
+  </div>
