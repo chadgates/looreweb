@@ -22,6 +22,7 @@ module.exports = function (grunt) {
       images: this.app + '/static/images',
       js: this.app + '/static/js',
       manageScript: 'manage.py',
+      virtualEnv: '/Users/wl/.virtualenvs/looreweb/'
     }
   };
 
@@ -110,7 +111,7 @@ module.exports = function (grunt) {
         bg: true
       },
       runDjango: {
-        cmd: 'python <%= paths.manageScript %> runserver'
+        cmd: 'source <%= paths.virtualEnv %>/bin/activate && python <%= paths.manageScript %> runserver'
       },
       runMailHog: {
         cmd: './mailhog'
