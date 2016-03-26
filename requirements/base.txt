@@ -47,5 +47,5 @@ redis>=2.10.0
 
 # Your custom requirements go here
 wagtail==1.4.*
-wagtail-django-recaptcha==
+wagtail-django-recaptcha==0.1
 elasticsearch==1.9.*
