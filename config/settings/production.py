@@ -106,6 +106,7 @@ AWS_HEADERS = {
 
 # http://docs.aws.amazon.com/general/latest/gr/rande.html#s3_region
 AWS_S3_CUSTOM_DOMAIN = env('DJANGO_AWS_S3_CUSTOM_DOMAIN', default='s3-eu-west-1.amazonaws.com')
+AWS_S3_HOST = env('DJANGO_AWS_S3_CUSTOM_DOMAIN', default='s3-eu-west-1.amazonaws.com')
 MEDIA_URL = 'https://%s/%s/' % (AWS_S3_CUSTOM_DOMAIN, AWS_STORAGE_BUCKET_NAME)
 
 
