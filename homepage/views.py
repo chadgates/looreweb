@@ -28,7 +28,7 @@ def search(request):
     except EmptyPage:
         search_results = paginator.page(paginator.num_pages)
 
-    return render(request, 'home/search.html', {
+    return render(request, 'homepage/search.html', {
         'search_query': search_query,
         'search_results': search_results,
     })
