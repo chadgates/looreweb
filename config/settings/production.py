@@ -81,6 +81,9 @@ INSTALLED_APPS += (
     'storages',
 )
 
+
+# http://docs.aws.amazon.com/general/latest/gr/rande.html#s3_region
+AWS_S3_HOST = env('DJANGO_AWS_S3_CUSTOM_DOMAIN', default='s3-eu-west-1.amazonaws.com')
 AWS_ACCESS_KEY_ID = env('DJANGO_AWS_ACCESS_KEY_ID')
 AWS_SECRET_ACCESS_KEY = env('DJANGO_AWS_SECRET_ACCESS_KEY')
 AWS_STORAGE_BUCKET_NAME = env('DJANGO_AWS_STORAGE_BUCKET_NAME')
@@ -102,12 +105,8 @@ AWS_HEADERS = {
 # URL that handles the media served from MEDIA_ROOT, used for managing
 # stored files.
 
-#MEDIA_URL = 'https://s3.amazonaws.com/%s/' % AWS_STORAGE_BUCKET_NAME
-
-# http://docs.aws.amazon.com/general/latest/gr/rande.html#s3_region
-AWS_S3_CUSTOM_DOMAIN = env('DJANGO_AWS_S3_CUSTOM_DOMAIN', default='s3-eu-west-1.amazonaws.com')
-AWS_S3_HOST = env('DJANGO_AWS_S3_CUSTOM_DOMAIN', default='s3-eu-west-1.amazonaws.com')
-MEDIA_URL = 'https://%s/%s/' % (AWS_S3_CUSTOM_DOMAIN, AWS_STORAGE_BUCKET_NAME)
+# seems to conflict with another setting leading to files not being served from correct path, thus commented:
+# MEDIA_URL = 'https://s3.amazonaws.com/%s/' % AWS_STORAGE_BUCKET_NAME
 
 
 # Static Assets
