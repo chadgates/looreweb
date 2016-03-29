@@ -34,7 +34,7 @@ urlpatterns = [
     url(r'^search/$', search_views.search, name='search'),
     url(r'', include(wagtail_urls)),
 
-] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
+]
 
 if settings.DEBUG:
     # This allows the error pages to be debugged during development, just visit
@@ -44,4 +44,4 @@ if settings.DEBUG:
         url(r'^403/$', default_views.permission_denied, kwargs={'exception': Exception("Permission Denied")}),
         url(r'^404/$', default_views.page_not_found, kwargs={'exception': Exception("Page not Found")}),
         url(r'^500/$', default_views.server_error),
-    ]
+    ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
