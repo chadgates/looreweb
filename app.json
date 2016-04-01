@@ -40,6 +40,6 @@
     "heroku-postgresql:hobby-dev",
     "heroku-redis:hobby-dev",
     "mailgun",
-    "searchbox:starter"
+    "searchbox:starter --es_version=1.7.x"
   ]
 }
