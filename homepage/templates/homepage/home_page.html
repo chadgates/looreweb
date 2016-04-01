@@ -34,6 +34,15 @@
             margin-top: 70px;
             margin-bottom: 70px;
             }
+
+    ul.share-buttons{
+  list-style: none;
+  padding: 0;
+}
+
+ul.share-buttons li{
+  display: inline;
+}
     </style>
 
 {% endblock %}
@@ -62,9 +71,18 @@
                  <div class="hr140"></div>
              </section>
     </div>
-
     <div class="container" id="content">
     {{ page.body }}
     </div>
+    <div class="container">
+        <ul class="share-buttons">
+          <li><a href="https://www.facebook.com/sharer/sharer.php?u=http%3A%2F%2Fwww.loorechoepf.com&t=Loorechoepf" target="_blank" title="Share on Facebook"><i class="fa fa-facebook-square fa-2x"></i></a></li>
+          <li><a href="https://twitter.com/intent/tweet?source=http%3A%2F%2Fwww.loorechoepf.com&text=Loorechoepf:%20http%3A%2F%2Fwww.loorechoepf.com" target="_blank" title="Tweet"><i class="fa fa-twitter-square fa-2x"></i></a></li>
+          <li><a href="https://plus.google.com/share?url=http%3A%2F%2Fwww.loorechoepf.com" target="_blank" title="Share on Google+"><i class="fa fa-google-plus-square fa-2x"></i></a></li>
+          <li><a href="http://www.linkedin.com/shareArticle?mini=true&url=http%3A%2F%2Fwww.loorechoepf.com&title=Loorechoepf&summary=Kochclub%20Loorechoepf%2C%20monatlich%20pfiffige%20Rezepte&source=http%3A%2F%2Fwww.loorechoepf.com" target="_blank" title="Share on LinkedIn"><i class="fa fa-linkedin-square fa-2x"></i></a></li>
+          <li><a href="mailto:?subject=Loorechoepf&body=Kochclub%20Loorechoepf%2C%20monatlich%20pfiffige%20Rezepte:%20http%3A%2F%2Fwww.loorechoepf.com" target="_blank" title="Email"><i class="fa fa-envelope-square fa-2x"></i></a></li>
+        </ul>
+    </div>
+
 
 {% endblock %}

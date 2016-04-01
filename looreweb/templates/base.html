@@ -19,7 +19,7 @@
     <link rel="stylesheet" href="https://cdn.rawgit.com/twbs/bootstrap/v4-dev/dist/css/bootstrap.css">
 
     <!-- Your stuff: Third-party css libraries go here -->
-
+    <link href="http://netdna.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.css" rel="stylesheet">
     <!-- This file store project specific CSS -->
     <link href="{% static 'css/project.css' %}" rel="stylesheet">
     {% endblock %}
@@ -95,9 +95,12 @@
     {% block content %}
         <p>Use this document as a way to quick start any new project.</p>
     {% endblock content %}
+
+
     <footer class="footer">
         <div class="container">
-              <p class="lk-docs-footer text-muted small">Copyright 2016. <a href="/impressum">Impressum</a> </p></div>
+              <p class="lk-docs-footer text-muted small">Copyright 2016. <a href="/impressum">Impressum</a></p>
+        </div>
     </footer>
     {% block modal %}{% endblock modal %}
 
