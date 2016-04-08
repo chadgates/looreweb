@@ -1,5 +1,7 @@
 {% extends "base.html" %}
 {% load wagtailcore_tags wagtailimages_tags %}
+
+{% load disqus_tags %}
 {% block body_class %}template-homepage{% endblock %}
 
 {% block extra_css %}
@@ -59,4 +61,12 @@
       </section>
 {#    {% endif %}#}
   {% endfor %}
+    <div class="container">
+          <button class="btn btn-primary" type="button" data-toggle="collapse" data-target="#collapseComments" aria-expanded="false" aria-controls="collapseComments">
+                Kommentare
+          </button>
+    <div class="collapse" id="collapseComments">
+        {% disqus_show_comments %}
+    </div>
+    </div>
 {% endblock %}
