@@ -30,7 +30,10 @@
     "RECAPTCHA_PUBLIC_KEY": "",
     "RECAPTCHA_PRIVATE_KEY": "",
 
-    "WAGTAILSEARCH_BACKENDS_URL": ""
+    "WAGTAILSEARCH_BACKENDS_URL": "",
+
+    "DISQUS_API_KEY": "",
+    "DISQUS_WEBSITE_SHORTNAME": ""
 
   },
   "scripts": {
