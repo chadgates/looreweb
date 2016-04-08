@@ -208,3 +208,13 @@ ADMIN_URL = env('DJANGO_ADMIN_URL')
 
 # Your production stuff: Below this line define 3rd party library settings
 DEFAULT_FILE_STORAGE = 'storages.backends.s3boto.S3BotoStorage'
+
+
+WAGTAILSEARCH_BACKENDS = {
+    'default': {
+        'BACKEND': 'wagtail.wagtailsearch.backends.elasticsearch',
+        'URLS': [env("WAGTAILSEARCH_BACKENDS_URL")],
+        'INDEX': 'wagtail',
+        'TIMEOUT': 5,
+    }
+}
