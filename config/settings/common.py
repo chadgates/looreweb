@@ -51,6 +51,7 @@ LOCAL_APPS = (
     'wagtail.contrib.wagtailsearchpromotions',
     'wagtailcaptcha',
     'captcha',
+    'disqus',
 
     #Wagtail stuff:
     'wagtail.wagtailforms',
@@ -265,11 +266,5 @@ RECAPTCHA_PUBLIC_KEY = env("RECAPTCHA_PUBLIC_KEY")
 RECAPTCHA_PRIVATE_KEY = env("RECAPTCHA_PRIVATE_KEY")
 NOCAPTCHA = True
 
-WAGTAILSEARCH_BACKENDS = {
-    'default': {
-        'BACKEND': 'wagtail.wagtailsearch.backends.elasticsearch',
-        'URLS': [env("WAGTAILSEARCH_BACKENDS_URL")],
-        'INDEX': 'wagtail',
-        'TIMEOUT': 5,
-    }
-}
+DISQUS_API_KEY = env("DISQUS_API_KEY")
+DISQUS_WEBSITE_SHORTNAME = env("DISQUS_WEBSITE_SHORTNAME")
