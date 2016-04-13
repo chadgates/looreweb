@@ -1,0 +1,31 @@
+{% extends "base.html" %}
+{% load wagtailcore_tags wagtailimages_tags %}
+{% block body_class %}template-homepage{% endblock %}
+
+
+
+{% block content %}
+    <div class="container">
+    <h1>{{ page.title }}</h1>
+
+        {% for cookingevent in self.cookingevents %}
+            <h3><a href="./{{ cookingevent.slug }}">{{ cookingevent.title }}</a></h3>
+            <h5>{{ cookingevent.date }}: Abendchef: {{ cookingevent.chefdejour }}</h5>
+             {% for page in cookingevent.apero %}
+                 {{ page.title }}
+             {% endfor %}
+             {% for page in cookingevent.vorspeise %}
+                 {{ page.title }}
+             {% endfor %}
+            {% for page in cookingevent.hauptgang %}
+                 {{ page.title }}
+             {% endfor %}
+            {% for page in cookingevent.dessert %}
+                 {{ page.dessert }}
+             {% endfor %}
+
+
+        {% endfor %}
+
+    </div>
+{% endblock %}
