@@ -12,18 +12,19 @@
         <h4>Apéro</h4>
 
         {% for page in self.apero %}
-            <h5>{{ page.title }}</h5><br>
+            <h5><a href="./{{ page.slug }}">{{ page.title }}</a></h5><br>
              {% if page.rezeptbild %}
                 {% for block in page.rezeptbild %}
                     {% image block.value.rezept_bild width-300 class="img-responsive" %}
                 {% endfor %}
             {% endif %}
+
         {% endfor %}
 
         <h4>Vorspeise</h4>
 
         {% for page in self.vorspeise %}
-            <h5>{{ page.title }}</h5><br>
+            <h5><a href="./{{ page.slug }}">{{ page.title }}</a></h5><br>
              {% if page.rezeptbild %}
                 {% for block in page.rezeptbild %}
                     {% image block.value.rezept_bild width-300 class="img-responsive" %}
@@ -34,7 +35,7 @@
         <h4>Hauptgang</h4>
 
         {% for page in self.hauptgang %}
-            <h5>{{ page.title }}</h5><br>
+            <h5><a href="./{{ page.slug }}">{{ page.title }}</a></h5><br>
              {% if page.rezeptbild %}
                 {% for block in page.rezeptbild %}
                     {% image block.value.rezept_bild width-300 class="img-responsive" %}
@@ -45,7 +46,7 @@
         <h4>Dessert</h4>
 
         {% for page in self.dessert %}
-            <h5>{{ page.title }}</h5><br>
+            <h5><a href="./{{ page.slug }}">{{ page.title }}</a></h5><br>
              {% if page.rezeptbild %}
                 {% for block in page.rezeptbild %}
                     {% image block.value.rezept_bild width-300 class="img-responsive" %}
