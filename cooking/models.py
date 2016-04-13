@@ -7,6 +7,7 @@ from wagtail.wagtailcore.fields import RichTextField, StreamField
 from wagtail.wagtailcore import blocks
 from wagtail.wagtailimages.blocks import ImageChooserBlock
 from wagtail.wagtailsearch import index
+from django.utils.translation import ugettext_lazy as _
 
 
 class RecipePictureBlock(blocks.StructBlock):
@@ -40,6 +41,7 @@ class CookingEventPage(Page):
     ]
 
     subpage_types = ['cooking.RecipePage']
+    parent_page_types = ['cooking.CookingEventIndexPage']
 
     def recipes(self):
         # Get list of live recipe pages that are descendants of this page
@@ -165,3 +167,21 @@ class RecipePage(Page):
 
 # DEVELOPMENT:
 # TODO: Need to create an index page for cooking events - and a recipe landing page...
+
+class CookingEventIndexPage(Page):
+
+    def cookingevents(self):
+        cookingevents = CookingEventPage.objects.live().descendant_of(self)
+        cookingevents = cookingevents.order_by('-date')
+        return cookingevents
+
+    class Meta:
+        verbose_name = _('Cooking Events index')
+
+
+    content_panels = Page.content_panels = [
+        FieldPanel('title'),
+    ]
+
+    subpage_types = ['cooking.CookingEventPage']
+
