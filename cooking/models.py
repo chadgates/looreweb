@@ -25,18 +25,15 @@ class IngredientsWorkBlock(blocks.StructBlock):
     instruktion = blocks.RichTextBlock(classname="full", label="Arbeitsschritt")
 
 
-# TODO:
 class CookingEventPage(Page):
     date = models.DateField()
     chefdejour = models.TextField()
-    theme = models.CharField(max_length=100)
     remarks = RichTextField(blank=True)
 
     content_panels = Page.content_panels = [
         FieldPanel('title'),
         FieldPanel('date'),
         FieldPanel('chefdejour'),
-        FieldPanel('theme'),
         FieldPanel('remarks'),
     ]
 
@@ -165,8 +162,8 @@ class RecipePage(Page):
         index.FilterField('gang'),
     )
 
-# DEVELOPMENT:
-# TODO: Need to create an index page for cooking events - and a recipe landing page...
+
+# TODO: Pagination of index page
 
 class CookingEventIndexPage(Page):
 
@@ -178,10 +175,12 @@ class CookingEventIndexPage(Page):
     class Meta:
         verbose_name = _('Cooking Events index')
 
-
     content_panels = Page.content_panels = [
         FieldPanel('title'),
     ]
 
     subpage_types = ['cooking.CookingEventPage']
 
+
+# DEVELOPMENT:
+# TODO: Need to create a recipe landing page...
