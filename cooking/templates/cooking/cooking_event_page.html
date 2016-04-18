@@ -5,53 +5,53 @@
 {% block content %}
     <div class="container">
     <h1>{{ page.title }}</h1>
+    {{ page.remarks|richtext }}
         Abendchef: {{ page.chefdejour}}<br>
-        Kommentar: {{ page.remarks|richtext }}
+        <br>
 
-        <h4>Apéro</h4>
-
-        {% for page in self.apero %}
-            <h5><a href="./{{ page.slug }}">{{ page.title }}</a></h5><br>
-             {% if page.rezeptbild %}
-                {% for block in page.rezeptbild %}
-                    {% image block.value.rezept_bild width-300 class="img-responsive" %}
-                {% endfor %}
-            {% endif %}
-
-        {% endfor %}
-
-        <h4>Vorspeise</h4>
-
-        {% for page in self.vorspeise %}
-            <h5><a href="./{{ page.slug }}">{{ page.title }}</a></h5><br>
-             {% if page.rezeptbild %}
-                {% for block in page.rezeptbild %}
-                    {% image block.value.rezept_bild width-300 class="img-responsive" %}
-                {% endfor %}
-            {% endif %}
-        {% endfor %}
-
+        {% if self.apero %}
+            <h4>Apéro</h4>
+            {% for page in self.apero %}
+                <h5><a href="./{{ page.slug }}">{{ page.title }}</a></h5><br>
+                 {% if page.rezeptbild %}
+                    {% for block in page.rezeptbild %}
+                        {% image block.value.rezept_bild width-300 class="img-responsive" %}
+                    {% endfor %}
+                {% endif %}
+            {% endfor %}
+        {% endif %}
+        {% if self.vorspeise %}
+            <h4>Vorspeise</h4>
+            {% for page in self.vorspeise %}
+                <h5><a href="./{{ page.slug }}">{{ page.title }}</a></h5><br>
+                 {% if page.rezeptbild %}
+                    {% for block in page.rezeptbild %}
+                        {% image block.value.rezept_bild width-300 class="img-responsive" %}
+                    {% endfor %}
+                {% endif %}
+            {% endfor %}
+        {% endif %}
+        {% if self.hauptgang %}
         <h4>Hauptgang</h4>
-
-        {% for page in self.hauptgang %}
-            <h5><a href="./{{ page.slug }}">{{ page.title }}</a></h5><br>
-             {% if page.rezeptbild %}
-                {% for block in page.rezeptbild %}
-                    {% image block.value.rezept_bild width-300 class="img-responsive" %}
-                {% endfor %}
-            {% endif %}
-        {% endfor %}
-
-        <h4>Dessert</h4>
-
-        {% for page in self.dessert %}
-            <h5><a href="./{{ page.slug }}">{{ page.title }}</a></h5><br>
-             {% if page.rezeptbild %}
-                {% for block in page.rezeptbild %}
-                    {% image block.value.rezept_bild width-300 class="img-responsive" %}
-                {% endfor %}
-            {% endif %}
-        {% endfor %}
-
+            {% for page in self.hauptgang %}
+                <h5><a href="./{{ page.slug }}">{{ page.title }}</a></h5><br>
+                 {% if page.rezeptbild %}
+                    {% for block in page.rezeptbild %}
+                        {% image block.value.rezept_bild width-300 class="img-responsive" %}
+                    {% endfor %}
+                {% endif %}
+            {% endfor %}
+        {% endif %}
+        {% if self.dessert %}
+            <h4>Dessert</h4>
+            {% for page in self.dessert %}
+                <h5><a href="./{{ page.slug }}">{{ page.title }}</a></h5><br>
+                 {% if page.rezeptbild %}
+                    {% for block in page.rezeptbild %}
+                        {% image block.value.rezept_bild width-300 class="img-responsive" %}
+                    {% endfor %}
+                {% endif %}
+            {% endfor %}
+        {% endif %}
     </div>
 {% endblock %}

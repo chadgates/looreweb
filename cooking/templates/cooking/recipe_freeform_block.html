@@ -9,7 +9,7 @@
     {% if self.untertitel %}
         <div class="container-fluid">
             <div class="container">
-                <h5>{{ self.untertitel }}</h5>
+                {{ self.untertitel }}
             </div>
         </div>
     {% endif %}
@@ -17,7 +17,6 @@
     {% if self.instruktionen %}
         <div class="container-fluid">
             <div class="container rezept_freiform">
-                <h5>Rezept</h5>
                 {% for block in self.instruktionen %}
                     {{ block }}
                 {% endfor %}

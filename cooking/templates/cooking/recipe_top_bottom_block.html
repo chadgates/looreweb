@@ -12,7 +12,7 @@
     {% if self.untertitel %}
         <div class="container-fluid">
             <div class="container">
-                <h5>{{ self.untertitel }}</h5>
+                {{ self.untertitel }}
             </div>
         </div>
     {% endif %}
@@ -20,7 +20,6 @@
     {% if self.zutaten %}
         <div class="container-fluid">
             <div class="container rezept_zutaten">
-                <h5>Zutaten</h5>
                     <table class="table">
                         <thead>
                             <tr>
@@ -44,7 +43,6 @@
         {% endif %}
     <div class="container-fluid">
         <div class="container rezept_arbeitsschritte">
-                <h5>Arbeitsschritte</h5>
                 {{ self.arbeitsschritte }}
         </div>
     </div>
