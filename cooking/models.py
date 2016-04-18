@@ -1,6 +1,8 @@
 from django.db import models
 
 # Create your models here.
+from wagtail.wagtaildocs.models import Document
+from wagtail.wagtaildocs.edit_handlers import DocumentChooserPanel
 from wagtail.wagtailadmin.edit_handlers import FieldPanel, StreamFieldPanel
 from wagtail.wagtailcore.models import Page
 from wagtail.wagtailcore.fields import RichTextField, StreamField
@@ -29,16 +31,28 @@ class CookingEventPage(Page):
     date = models.DateField()
     chefdejour = models.TextField()
     remarks = RichTextField(blank=True)
+    recipefile = models.ForeignKey(
+        'wagtaildocs.Document',
+        null=True,
+        blank=True,
+        on_delete=models.SET_NULL,
+        related_name='+'
+    )
 
     content_panels = Page.content_panels = [
         FieldPanel('title'),
         FieldPanel('date'),
         FieldPanel('chefdejour'),
         FieldPanel('remarks'),
+        DocumentChooserPanel('recipefile'),
     ]
 
     subpage_types = ['cooking.RecipePage']
     parent_page_types = ['cooking.CookingEventIndexPage']
+
+    def cooking_event_index(self):
+        # Find closest ancestor which is an event index
+        return self.get_ancestors().type(CookingEventIndexPage).last()
 
     def recipes(self):
         # Get list of live recipe pages that are descendants of this page
@@ -152,6 +166,10 @@ class RecipePage(Page):
     ]
 
     parent_page_types = ['cooking.CookingEventPage']
+
+    def cooking_event(self):
+        # Find closest ancestor which is an event index
+        return self.get_ancestors().type(CookingEventPage).last()
 
     search_fields = Page.search_fields + (
         index.SearchField('kommentar'),
