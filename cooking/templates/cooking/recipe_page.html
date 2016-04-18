@@ -18,7 +18,14 @@
 {% endblock %}
 
 {% block content %}
-     <div class="container-fluid" style="background-color: whitesmoke">
+    <ol class="breadcrumb" style="margin-bottom: 0px">
+        <li style="padding-left: 16px"><a href="/chochete">Übersicht</a></li>
+        <li><a href="../">{{ page.cooking_event }}</a></li>
+        <li class="active">{{ page.title }}</li>
+</ol>
+
+
+     <div class="container-fluid" style="background-color: #eceeef">
         <div class="container rezept_titel"><h3>{{ page.title }}</h3></div>
     </div>
 
@@ -32,7 +39,7 @@
         </div>
     </div>
 
-    <div class="container-fluid" style="background-color: whitesmoke">
+    <div class="container-fluid" style="background-color: #eceeef">
     <div class="container rezept_info">
        <div class="row">
             <div class="col-xs-6">
