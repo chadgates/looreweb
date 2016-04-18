@@ -15,16 +15,16 @@
             <h3><a href="./{{ cookingevent.slug }}">{{ cookingevent.title }}</a></h3>
             <h5>{{ cookingevent.date }}: Abendchef: {{ cookingevent.chefdejour }}</h5>
              {% for page in cookingevent.apero %}
-                 {{ page.title }}
+                 {{ page.title }}<br>
              {% endfor %}
              {% for page in cookingevent.vorspeise %}
-                 {{ page.title }}
+                 {{ page.title }}<br>
              {% endfor %}
             {% for page in cookingevent.hauptgang %}
-                 {{ page.title }}
+                 {{ page.title }}<br>
              {% endfor %}
             {% for page in cookingevent.dessert %}
-                 {{ page.dessert }}
+                 {{ page.dessert }}<br>
              {% endfor %}
 
 
