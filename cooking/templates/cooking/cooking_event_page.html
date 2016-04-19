@@ -12,8 +12,10 @@
     <h3>{{ page.title }} </h3>
     {{ page.remarks|richtext }}
         Abendchef: {{ page.chefdejour}}<br>
-    <a class="btn btn-primary" href="{{ page.recipefile.url }}" style="margin-bottom: 15px;margin-top: 10px"><i class="fa fa-file-text-o" aria-hidden="true"></i> Download</a>
+    {% if page.recipefile %}
+        <a class="btn btn-primary" href="{{ page.recipefile.url }}" style="margin-bottom: 15px;margin-top: 10px"><i class="fa fa-file-text-o" aria-hidden="true"></i> Download</a>
         <br>
+    {% endif %}
         {% if self.apero %}
             <h4>Apéro</h4>
             {% for page in self.apero %}
