@@ -8,6 +8,8 @@ $black: #000;
 $pink: #f2dede;
 $dark-pink: #eed3d7;
 $red: #b94a48;
+$darkgray: #444444;
+$blue: #2163b2;
 
 // bootstrap alert CSS, translated to the django-standard levels of
 // debug, info, success, warning, error
@@ -23,6 +25,45 @@ $red: #b94a48;
   border-color: $dark-pink;
   color: $red;
 }
+
+.lk_navform {
+  margin-left: 20px;
+}
+
+html {
+  position: relative;
+  min-height: 100%;
+}
+
+.footer {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  /* Set the fixed height of the footer here */
+  height: 50px;
+  background-color: $darkgray;
+}
+
+.lk-docs-footer {
+    padding-top: 15px;
+}
+
+.lk-row-bg-footer{
+  background-color: $darkgray;
+}
+
+.lk-row-bg-header{
+  background-color: $blue;
+}
+
+body {
+  margin-bottom: 54px;
+}
+
+.lk-top-space {
+  margin-top: 54px;
+}
+
 
 // This is a fix for the bootstrap4 alpha release
 
@@ -40,6 +81,20 @@ $red: #b94a48;
   .nav.navbar-nav.pull-xs-right {
     float: none !important;
   }
+
+  .lk_navform {
+    margin-left: 0px;
+  }
+
+  .lk-top-space {
+    margin-top: 270px ;
+  }
+}
+
+@media (max-width: 33.9em) {
+  .lk-top-space {
+    margin-top: 50px ;
+  }
 }
 
 // Display django-debug-toolbar.
@@ -49,3 +104,4 @@ $red: #b94a48;
 [hidden][style="display: block;"] {
   display: block !important;
 }
+
